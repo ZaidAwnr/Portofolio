@@ -176,49 +176,77 @@
 
 
 
-    <!-- Proyek -->
-    <section id="projects" class="min-h-screen flex items-center py-20 snap-start">
-    <div class="max-w-full mx-auto px-4">
-        <h2 class="text-4xl font-semibold text-center mb-16">Project</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+    <!-- Section Proyek -->
+    <section id="projects" class="min-h-screen flex flex-col items-center py-20 snap-start bg-gray-50">
+        <div class="max-w-7xl w-full px-4">
+            <h2 class="text-4xl font-semibold text-center mb-12">Project</h2>
 
-        <!-- Project Card 1 -->
-        <div onclick="openModal('MonStat','img/MonStat1.jpeg','MonStat adalah aplikasi IoT monitoring berbasis Java, Firebase dan ThingSpeak. Fitur-fiturnya meliputi pemantauan Lokasi, Suhu, Kelembapan, Kualitas Udara, Tekanan Udara, dan Detak Jantung secara real-time.')"
-            class="w-full bg-white p-6 min-h-[250px] rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transform transition-all duration-300 cursor-pointer flex flex-col justify-between">
-            <h2 class="text-xl font-bold mb-1">MonStat</h2>
-            <h5 class="font-medium mb-2 text-sm text-gray-700">Mobile Application</h5>
-            <p class="text-gray-600 text-sm">Full project description will appear here...</p>
-        </div>
+            <!-- Tab Filter -->
+            <div id="project-tabs" class="flex justify-center gap-4 mb-10">
+                <button onclick="filterProjects('all')" data-category="all"
+                    class="tab-btn px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700">All</button>
+                <button onclick="filterProjects('mobile')" data-category="mobile"
+                    class="tab-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300">Mobile
+                    App</button>
+                <button onclick="filterProjects('web')" data-category="web"
+                    class="tab-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300">Website</button>
+                <button onclick="filterProjects('iot')" data-category="iot"
+                    class="tab-btn px-4 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300">IoT</button>
+            </div>
 
-        <!-- Project Card 2 -->
-        <div onclick="openModal('MonBa','img/MonBa1.jpeg','MonBa adalah aplikasi mobile berbasis Java dan Firebase dengan fitur pencatatan berat badan bulanan, visualisasi grafik berat, serta rekomendasi langkah terbaik berbasis AI.')"
-            class="w-full bg-white p-6 min-h-[250px] rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transform transition-all duration-300 cursor-pointer flex flex-col justify-between">
-            <h3 class="text-xl font-bold mb-1">MonBa</h3>
-            <h5 class="font-medium mb-2 text-sm text-gray-700">Mobile Application</h5>
-            <p class="text-gray-600 text-sm">Full project description will appear here...</p>
-        </div>
+            <!-- Grid Project Cards -->
+            <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Project Card 3 -->
-        <div onclick="openModal('Journal Doc','img/jurnal1.png','Journal Doc adalah website dokumentasi perjalanan yang memungkinkan pengguna mengunggah foto dan deskripsi perjalanan. Dibuat menggunakan Next.js dan PostgreSQL.')"
-            class="w-full bg-white p-6 min-h-[250px] rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transform transition-all duration-300 cursor-pointer flex flex-col justify-between">
-            <h3 class="text-xl font-bold mb-1">Journal Doc</h3>
-            <h5 class="font-medium mb-2 text-sm text-gray-700">Website</h5>
-            <p class="text-gray-600 text-sm">Full project description will appear here...</p>
-        </div>
+                <!-- Project Card: JourneyDoc -->
+                <div data-category="mobile"
+                    class="project-card bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+                    onclick="openModal('JourneyDoc','img/journeydoc1.png','JourneyDoc merupakan aplikasi dokumentasi perjalanan dengan fitur History, Pengeluaran Bulanan, Statistik Perjalanan, dan Chatbot AI. Dibuat dengan Flutter, Dart, Firebase, dan SQL.')">
+                    <h3 class="text-xl font-bold">JourneyDoc</h3>
+                    <p class="text-sm text-gray-700">Mobile Application</p>
+                    <p class="text-sm text-gray-500 mt-2">Full project description will appear here...</p>
+                </div>
 
-        <!-- Project Card 4 -->
-        <div onclick="openModal('JTIK Pintar','img/jtikpintar1.png','JTIK Pintar adalah website untuk memantau mahasiswa berbakat, dengan sistem peringkat real-time, fitur unggah/hapus sertifikat, dan pengelolaan data mahasiswa. Dibuat dengan JS dan MySQL.')"
-            class="w-full bg-white p-6 min-h-[250px] rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transform transition-all duration-300 cursor-pointer flex flex-col justify-between">
-            <h3 class="text-xl font-bold mb-1">JTIK Pintar</h3>
-            <h5 class="font-medium mb-2 text-sm text-gray-700">Website</h5>
-            <p class="text-gray-600 text-sm">Full project description will appear here...</p>
-        </div>
+                <!-- Project Card: MonStat -->
+                <div data-category="iot"
+                    class="project-card bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+                    onclick="openModal('MonStat','img/MonStat1.jpeg','MonStat adalah aplikasi IoT berbasis Java, Firebase dan ThingSpeak untuk monitoring Lokasi, Suhu, Kelembapan, Kualitas Udara, Tekanan, dan Detak Jantung.')">
+                    <h3 class="text-xl font-bold">MonStat</h3>
+                    <p class="text-sm text-gray-700">IoT Application</p>
+                    <p class="text-sm text-gray-500 mt-2">Full project description will appear here...</p>
+                </div>
 
+                <!-- Project Card: MonBa -->
+                <div data-category="mobile"
+                    class="project-card bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+                    onclick="openModal('MonBa','img/MonBa1.jpeg','MonBa adalah aplikasi pencatatan berat badan bulanan, grafik visualisasi, dan rekomendasi AI. Dibuat dengan Java & Firebase.')">
+                    <h3 class="text-xl font-bold">MonBa</h3>
+                    <p class="text-sm text-gray-700">Mobile Application</p>
+                    <p class="text-sm text-gray-500 mt-2">Full project description will appear here...</p>
+                </div>
+
+                <!-- Project Card: Journal Doc -->
+                <div data-category="web"
+                    class="project-card bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+                    onclick="openModal('Journal Doc','img/jurnal1.png','Journal Doc adalah website dokumentasi perjalanan. Pengguna dapat mengunggah foto dan deskripsi perjalanan. Dibuat menggunakan Next.js dan PostgreSQL.')">
+                    <h3 class="text-xl font-bold">Journal Doc</h3>
+                    <p class="text-sm text-gray-700">Website</p>
+                    <p class="text-sm text-gray-500 mt-2">Full project description will appear here...</p>
+                </div>
+
+                <!-- Project Card: JTIK Pintar -->
+                <div data-category="web"
+                    class="project-card bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+                    onclick="openModal('JTIK Pintar','img/jtikpintar1.png','JTIK Pintar adalah website pemantauan mahasiswa berbakat, upload sertifikat, sistem ranking. Dibuat dengan JS dan MySQL.')">
+                    <h3 class="text-xl font-bold">JTIK Pintar</h3>
+                    <p class="text-sm text-gray-700">Website</p>
+                    <p class="text-sm text-gray-500 mt-2">Full project description will appear here...</p>
+                </div>
+
+            </div>
         </div>
-    </div>
     </section>
 
-    <!-- Modal Project -->
+    <!-- Modal -->
     <div id="modal-project" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-xl max-w-3xl w-full p-6 relative shadow-xl max-h-[90vh] overflow-y-auto">
             <button id="close-modal"
@@ -228,6 +256,7 @@
             <p id="modal-desc" class="text-gray-700 leading-relaxed">Full project description will appear here...</p>
         </div>
     </div>
+
 
 
 
@@ -247,6 +276,14 @@
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/maildotru.svg" alt="Email"
                         class="w-5 h-5">
                     Email
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/ZaidAwnr" target="_blank"
+                    class="flex items-center gap-2 bg-white/90 text-gray-700 px-5 py-2 rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" alt="GitHub"
+                        class="w-5 h-5">
+                    GitHub
                 </a>
 
                 <!-- WhatsApp -->
@@ -313,27 +350,43 @@
 </body>
 
 
+<!-- Script Filter & Modal -->
 <script>
-    const modal = document.getElementById("modal-project");
-    const modalTitle = document.getElementById("modal-title");
-    const modalImg = document.getElementById("modal-img");
-    const modalDesc = document.getElementById("modal-desc");
+    function filterProjects(category) {
+        // Tampilkan/sembunyikan kartu berdasarkan kategori
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
 
-    function openModal(title, imgSrc, description) {
-        modalTitle.textContent = title;
-        modalImg.src = imgSrc;
-        modalDesc.textContent = description;
-        modal.classList.remove("hidden");
+        // Update tombol aktif
+        const buttons = document.querySelectorAll('#project-tabs .tab-btn');
+        buttons.forEach(button => {
+            button.classList.remove('bg-gray-800', 'text-white');
+            button.classList.add('bg-gray-200', 'text-gray-800');
+        });
+
+        const activeButton = document.querySelector(`#project-tabs .tab-btn[data-category="${category}"]`);
+        if (activeButton) {
+            activeButton.classList.remove('bg-gray-200', 'text-gray-800');
+            activeButton.classList.add('bg-gray-800', 'text-white');
+        }
     }
 
-    document.getElementById("close-modal").addEventListener("click", () => {
-        modal.classList.add("hidden");
-    });
+    // Modal logic
+    function openModal(title, imgSrc, desc) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-img').src = imgSrc;
+        document.getElementById('modal-desc').innerText = desc;
+        document.getElementById('modal-project').classList.remove('hidden');
+    }
 
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.classList.add("hidden");
-        }
+    document.getElementById('close-modal').addEventListener('click', () => {
+        document.getElementById('modal-project').classList.add('hidden');
     });
 </script>
 
